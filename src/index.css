@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body { @apply bg-page text-ink; font-family: "DM Sans", system-ui, sans-serif; }
+@media print { .no-print { display: none !important; } }
+
+.flip-scene { perspective: 1000px; }
+.flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(.4,.2,.2,1); }
+.flip-inner.is-flipped { transform: rotateY(180deg); }
+.flip-face { position: absolute; inset: 0; border-radius: 0.5rem; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-back { transform: rotateY(180deg); }
+@media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
